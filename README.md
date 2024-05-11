@@ -42,6 +42,7 @@ docker compose up -d db
 
 2. Migrate database
 ```bash
+python manage.py makemigrations
 python manage.py migrate
 ```
 
@@ -60,6 +61,12 @@ python manage.py runserver 0.0.0.0:8000
 docker compose up -d init_dev
 ```
 
+### 🐞 Fix bugs docker: If the services cannot run synchronously you can try run the them in the following order
+```bash
+docker compose up -d db
+docker compose up -d init_dev
+```
+ 
 Open browser and access `localhost:8000/docs` to view swagger documentation
 
 <p align="center">

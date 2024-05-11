@@ -32,3 +32,5 @@ ENV CORS_ALLOWED_ORIGINS ${CORS_ALLOWED_ORIGINS}
 ENV HOST ${HOST}
 
 RUN ["chmod", "+x", "./docker-entrypoint.sh"]
+
+ENTRYPOINT ["./docker-entrypoint.sh"]
