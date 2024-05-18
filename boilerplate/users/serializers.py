@@ -16,6 +16,13 @@ class RegistrationSerializer(serializers.ModelSerializer):
     def validate_email(self, value):
         if User.objects.filter(email__icontains=value).exists():
             raise serializers.ValidationError({"email": "email is already taken"})
+
+        pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+        result = re.match(pattern, value)
+
+        if result is None:
+            raise serializers.ValidationError({"email": "email is invalid format"})
+
         return value
 
     def validate_password(self, value):
