@@ -28,8 +28,8 @@ urlpatterns = [
     ),
     path("admin/", admin.site.urls),
     # api route
-    path("api/auth/login", TokenObtainPairView.as_view(), name="login"),
-    path("api/auth/refresh-token", TokenRefreshView.as_view(), name="refresh_token"),
+    path("api/auth/login/", TokenObtainPairView.as_view(), name="login"),
+    path("api/auth/refresh-token/", TokenRefreshView.as_view(), name="refresh_token"),
     path("api/", include("boilerplate.users.urls"), name="users"),
     path("api/", include("boilerplate.roles.urls"), name="roles"),
 ]
